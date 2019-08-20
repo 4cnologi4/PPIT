@@ -39,8 +39,8 @@
       beforeSend: function() {
         alert("Procesando, espere por favor...");
       },
-      success: function(data) {
-        consultaGrupos();
+      success: function(data, res) {
+        res.send("grupo creado...");
       }
     });
   });

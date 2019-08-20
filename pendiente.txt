@@ -1,0 +1,10 @@
+rol alumno
+[X] validar campos
+[OK] cambiar unirse a grupos de tutorías por migrupo de tutorias 
+[OK] cambiar mis grupos de tutorias por perfil del tutor
+  [OK] mostrar integrantes del grupo
+*mensaje a tutor
+*checar herramientas de chat
+
+rol docente
+agregar combobox de aprobado reprobado

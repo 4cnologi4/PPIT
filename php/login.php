@@ -9,7 +9,13 @@
 		$usuario = mysqli_real_escape_string($conn,$_POST['usuario']);
 		$password = mysqli_real_escape_string($conn,$_POST['password']);
 
-		$sql = "SELECT  usuarios.nom_usuario, usuarios.password, usuarios.correo, usuarios.created_at, roles.nom_rol FROM usuarios JOIN roles ON usuarios.idroles = roles.idroles WHERE usuarios.nom_usuario = '$usuario'";
+		$sql = "SELECT  usuarios.nom_usuario, 
+		usuarios.password, 
+		usuarios.correo, 
+		usuarios.created_at,
+		roles.nom_rol FROM usuarios 
+		JOIN roles ON usuarios.idroles = roles.idroles
+		WHERE usuarios.nom_usuario = '$usuario'";
 
 		$result = $conn->query($sql);
 		$rows = $result->num_rows;
@@ -40,4 +46,3 @@
 			header("Location: http://localhost/PPI/");
 		}
 	}
-?>

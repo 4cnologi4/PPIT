@@ -42,10 +42,6 @@ if (isset($_SESSION['nom_usuario']) && isset($_SESSION['nom_rol'])) {
   <?php include 'menus/empresas.php';  ?>
 </div>
 
-<div id="sesion" style="display: none;">
-  <?php include 'auth/login.php';  ?>
-</div>
-
 <?php include 'footer.php'; ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

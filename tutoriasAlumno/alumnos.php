@@ -5,12 +5,12 @@
       <p>Que son las tutorías?</p>
     </div>
     <div class="col-sm-6 col-md-3 text-center">
-      <a href="javascript:void(0)" onclick="cargarUnirse()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
-      <p>Unirse a grupos</p>
+      <a href="javascript:void(0)" onclick="cargarTutor()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Perfil Tutor</p>
     </div>
     <div class="col-sm-6 col-md-3 text-center">
-      <a href="javascript:void(0)" onclick="cargarMisGrupos()"><img src="recursos/img/tutorias/grupos.png" class="img-circle" alt="Cinque Terre"></a>
-      <p>Mis grupos de tutorías</p>
+      <a href="javascript:void(0)" onclick="cargarMiGrupo()"><img src="recursos/img/tutorias/grupos.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Mí grupo de tutorías</p>
     </div>
     <div class="col-sm-6 col-md-3 text-center">
       <a href="javascript:void(0)" onclick="cargarActividades()"><img src="recursos/img/tutorias/actividades.png" class="img-circle" alt="Cinque Terre"></a>
@@ -23,12 +23,12 @@
   <?php include 'queson.php';  ?>
 </div>
 
-<div id="unirse" style="display: none;">
-  <?php include 'unirse.php';  ?>
+<div id="perfilTutor" style="display: none;">
+  <?php include 'perfilTutor.php';  ?>
 </div>
 
-<div id="misgrupos" style="display: none;">
-  <?php include 'misgrupos.php';  ?>
+<div id="migrupo" style="display: none;">
+  <?php include 'migrupo.php';  ?>
 </div>
 
 <div id="actyeva" style="display: none;">
@@ -56,15 +56,15 @@
     menuAnterior = menuActual;
   }
 
-  function cargarUnirse() {
-    var menuActual = document.getElementById('unirse');
+  function cargarTutor() {
+    var menuActual = document.getElementById('perfilTutor');
     menuAnterior.style.display = 'none';
     menuActual.style.display = 'block';
     menuAnterior = menuActual;
   }
 
-  function cargarMisGrupos() {
-    var menuActual = document.getElementById('misgrupos');
+  function cargarMiGrupo() {
+    var menuActual = document.getElementById('migrupo');
     menuAnterior.style.display = 'none';
     menuActual.style.display = 'block';
     menuAnterior = menuActual;

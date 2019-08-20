@@ -16,12 +16,12 @@
       <?php
       #test 
       #include '../config/db/conexion.php';
-      $u_actual = $_SESSION['nom_usuario'];
-      #$u_actual = $_SESSION['iddocente'];
       include 'config/db/conexion.php';
+      $u_actual = $_SESSION['nom_usuario'];
       $sql_query = "SELECT idGrupo, clave, horario, cantidad, nom_usuario FROM grupo as g 
         join docente as d on g.iddocente=d.iddocente
-        join usuarios as u on d.idusuario=u.idusuarios WHERE nom_usuario = '$u_actual'";
+        join usuarios as u on d.idusuario=u.idusuarios
+        WHERE nom_usuario = '$u_actual'";
       $resultset = mysqli_query($conn, $sql_query) or die("error base de datos:" . mysqli_error($conn));
       while ($grupo = mysqli_fetch_assoc($resultset)) {
         ?>
