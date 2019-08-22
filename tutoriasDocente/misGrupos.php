@@ -9,7 +9,6 @@
         <th>clave</th>
         <th>horario</th>
         <th>cantidad</th>
-        <th>docente</th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +29,6 @@
           <td><?php echo $grupo['clave']; ?></td>
           <td><?php echo $grupo['horario']; ?></td>
           <td><?php echo $grupo['cantidad']; ?></td>
-          <td><?php echo $grupo['nom_usuario']; ?></td>
         </tr>
       <?php } ?>
     </tbody>

@@ -9,10 +9,23 @@
       <a href="javascript:void(0)" onclick="misAlumnos()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
       <p>Mis alumnos</p>
     </div>
-    <div class="col-sm-6 col-md-4 text-center">
-      <a href="javascript:void(0)" onclick="cargarActividades()"><img src="recursos/img/tutorias/actividades.png" class="img-circle" alt="Cinque Terre"></a>
-      <p>Actividades y evaluaciones</p>
+    <div id="cargaCreaActividad" class="col-sm-3 col-md-4 text-center">
+      <a href="javascript:void(0)" onclick="cargarCrearActividad()"><img src="recursos/img/tutorias/tutorias.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Crear actividad</p>
     </div>
+    <div id="cargaMiActividad" class="col-sm-3 col-md-4 text-center">
+      <a href="javascript:void(0)" onclick="cargarMisActividades()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Mis actividades</p>
+    </div>
+    <div id="cargaCalifica" class="col-sm-3 col-md-4 text-center">
+      <a href="javascript:void(0)" onclick="cargarCalificar()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Calificar Actividad</p>
+    </div>
+    <div class="col-sm-6 col-md-4 text-center">
+      <a href="javascript:void(0)" onclick="cargarCalificaciones()"><img src="recursos/img/tutorias/tutorias.png" class="img-circle" alt="Cinque Terre"></a>
+      <p>Calificaciones</p>
+    </div>
+
   </div>
 </div>
 
@@ -24,8 +37,20 @@
   <?php include 'misAlumnos.php';  ?>
 </div>
 
-<div id="actyeva" style="display: none;">
-  <?php include 'actyeva.php';  ?>
+<div id="calificaciones" style="display: none;">
+  <?php include 'calificaciones.php';  ?>
+</div>
+
+<div id="crearact" style="display: none;">
+  <?php include 'crearActividad.php';  ?>
+</div>
+
+<div id="actividades" style="display: none;">
+  <?php include 'actividades.php';  ?>
+</div>
+
+<div id="calificaract" style="display: none;">
+  <?php include 'calificarAct.php';  ?>
 </div>
 
 <div id="sesion" style="display: none;">
@@ -34,6 +59,27 @@
 
 <script type="text/javascript">
   var menuAnterior = document.getElementById('principal');
+
+  function cargarCrearActividad() {
+    var menuActual = document.getElementById('crearact');
+    menuAnterior.style.display = 'none';
+    menuActual.style.display = 'block';
+    menuAnterior = menuActual;
+  }
+
+  function cargarMisActividades() {
+    var menuActual = document.getElementById('actividades');
+    menuAnterior.style.display = 'none';
+    menuActual.style.display = 'block';
+    menuAnterior = menuActual;
+  }
+
+  function cargarCalificar() {
+    var menuActual = document.getElementById('calificaract');
+    menuAnterior.style.display = 'none';
+    menuActual.style.display = 'block';
+    menuAnterior = menuActual;
+  }
 
   function misGrupos() {
     var menuActual = document.getElementById('misgrupos');
@@ -52,6 +98,13 @@
 
   function cargarActividades() {
     var menuActual = document.getElementById('actyeva');
+    menuAnterior.style.display = 'none';
+    menuActual.style.display = 'block';
+    menuAnterior = menuActual;
+  }
+
+  function cargarCalificaciones() {
+    var menuActual = document.getElementById('calificaciones');
     menuAnterior.style.display = 'none';
     menuActual.style.display = 'block';
     menuAnterior = menuActual;

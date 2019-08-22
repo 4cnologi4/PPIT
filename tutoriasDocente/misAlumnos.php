@@ -5,28 +5,25 @@
   <table id="data_table" class="table table-bordered table-hover">
     <thead>
       <tr>
-        <th>num control</th>
-        <th>carrera</th>
-        <th>alumno</th>
-        <th>clave</th>
+        <th class="text-center">num control</th>
+        <th class="text-center">carrera</th>
+        <th class="text-center">alumno</th>
+        <th class="text-center">clave</th>
       </tr>
     </thead>
     <tbody>
-      <?php
-      header('Content-Type: text/html; charset=UTF-8');
-      ?>
       <?php
       #test 
       #include '../config/db/conexion.php';
       #$u_actual = $_SESSION['iddocente'];
       include 'config/db/conexion.php';
 
-      $doc_sql_query = "SELECT idGrupo, clave, horario, cantidad, nom_usuario, idusuarios FROM grupo as g 
+      $doc_sql_query = "SELECT idGrupo, d.iddocente, clave, horario, cantidad, nom_usuario, idusuarios FROM grupo as g 
         join docente as d on g.iddocente=d.iddocente
         join usuarios as u on d.idusuario=u.idusuarios WHERE nom_usuario = '$u_actual'";
       $doc_query = mysqli_query($conn, $doc_sql_query);
       $uid = mysqli_fetch_assoc($doc_query);
-      $user = $uid['idusuarios'];
+      $user = $uid['iddocente'];
 
       #print_r($uid);
 
@@ -36,18 +33,16 @@
         join usuarios as u on a.idalumno=u.idusuarios
         join carrera as ac on a.idcarrera=ac.idcarrera
         join docente as d on g.iddocente=d.iddocente
-        WHERE idusuarios = " . intval($uid);
+        WHERE d.iddocente = " . intval($user);
 
       $resultset = mysqli_query($conn, $sql_query) or die("error base de datos:" . mysqli_error($conn));
       while ($grupo = mysqli_fetch_assoc($resultset)) {
         ?>
       <tr id="<?php echo $grupo['idgrupo']; ?>">
-        <td><?php echo $grupo['num_control']; ?></td>
-        <td><?php echo $grupo['nom_carrera']; ?></td>
-        <td><?php echo $grupo['nom_usuario']; ?></td>
-        <td><?php echo $grupo['clave']; ?></td>
-        <!--td><? //php echo $_SESSION['nom_usuario']; 
-                  ?></td-->
+        <td class="text-center"><?php echo $grupo['num_control']; ?></td>
+        <td class="text-center"><?php echo $grupo['nom_carrera']; ?></td>
+        <td class="text-center"><?php echo $grupo['nom_usuario']; ?></td>
+        <td class="text-center"><?php echo $grupo['clave']; ?></td>
       </tr>
       <?php } ?>
     </tbody>

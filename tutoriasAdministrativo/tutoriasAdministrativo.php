@@ -1,18 +1,18 @@
 <div class="row" id="principal">
   <div class="container-fluid col-sm-12">
-    <div class="col-sm-6 col-md-4 text-center">
+    <div class="col-sm-6 col-md-6 text-center">
       <a href="javascript:void(0)" onclick="crearGruposTutorias()"><img src="recursos/img/tutorias/tutorias.png" class="img-circle" alt="Cinque Terre"></a>
       <p>Crear grupos de tutorías</p>
     </div>
-    <div class="col-sm-6 col-md-4 text-center">
+    <div class="col-sm-6 col-md-6 text-center">
       <!--a href="tutoriasAdministrativo/consulta_grupos.php"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a-->
       <a href="javascript:void(0)" onclick="consultaGrupos()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
       <p>Consulta de Grupos</p>
     </div>
-    <div class="col-sm-6 col-md-4 text-center">
+    <!--div class="col-sm-6 col-md-4 text-center">
       <a href="javascript:void(0)" onclick="reportesRecibidos()"><img src="recursos/img/tutorias/grupos.png" class="img-circle" alt="Cinque Terre"></a>
       <p>Mis Reportes recibidos</p>
-    </div>
+    </div-->
   </div>
 </div>
 
