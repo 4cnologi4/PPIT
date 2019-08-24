@@ -19,7 +19,7 @@ $query_grupo = "SELECT clave, nom_usuario, num_control, nom_carrera, semestre
   from listaGrupos as lg
   join grupo as g on g.idgrupo=lg.idgrupo
   join alumno as a on a.idalumno=lg.idalumno
-  join usuarios as u on a.idalumno=u.idusuarios 
+  join usuarios as u on a.idusuario=u.idusuarios 
   join carrera as c on c.idcarrera=a.idcarrera
   where g.idgrupo = " . intval($id_grupo);
 $query_grupo_exec = mysqli_query($conn, $query_grupo);
@@ -44,10 +44,10 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Matrícula</th>
-        <th>carrera</th>
-        <th>semestre</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Matrícula</th>
+        <th class="text-center">carrera</th>
+        <th class="text-center">semestre</th>
       </tr>
     </thead>
     <tbody>
@@ -55,10 +55,10 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
       while ($query_json = mysqli_fetch_assoc($query_grupo_exec)) {
         ?>
       <tr>
-        <td><?php echo $query_json['nom_usuario']; ?></td>
-        <td><?php echo $query_json['num_control']; ?></td>
-        <td><?php echo $query_json['nom_carrera']; ?></td>
-        <td><?php echo $query_json['semestre']; ?></td>
+        <td class="text-center"><?php echo $query_json['nom_usuario']; ?></td>
+        <td class="text-center"><?php echo $query_json['num_control']; ?></td>
+        <td class="text-center"><?php echo $query_json['nom_carrera']; ?></td>
+        <td class="text-center"><?php echo $query_json['semestre']; ?></td>
       </tr>
       <?php } ?>
     </tbody>

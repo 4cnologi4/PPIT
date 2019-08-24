@@ -30,7 +30,7 @@
       $sql_query = "SELECT idListaGrupo, num_control, nom_carrera, nom_usuario, clave  from listaGrupos as lg
         join grupo as g on g.idgrupo=lg.idgrupo
         join alumno as a on lg.idalumno=a.idalumno
-        join usuarios as u on a.idalumno=u.idusuarios
+        join usuarios as u on a.idusuario=u.idusuarios
         join carrera as ac on a.idcarrera=ac.idcarrera
         join docente as d on g.iddocente=d.iddocente
         WHERE d.iddocente = " . intval($user);

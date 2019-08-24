@@ -44,7 +44,7 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         <th class="text-center">Nombre Actividad</th>
         <th class="text-center">Archivo</th>
         <th class="text-center">Fecha Entrega</th>
-        <th class="text-center">Grupo</th>
+        <th class="text-center">Estatus</th>
       </tr>
     </thead>
     <tbody>

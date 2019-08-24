@@ -16,6 +16,12 @@
 
 <body>
 	<?php
+	date_default_timezone_set('America/Mexico_City');
+	include 'config/db/conexion.php';
+	$f_a = date("Y-m-d", time());
+	$query_actividad = "UPDATE actividades SET estatus = 'cerrada' WHERE fecha_entrega < '$f_a'";
+	$actualizar_actividades = mysqli_query($conn, $query_actividad) or die(mysqli_error($conn));
+
 	include 'header.php';
 	include 'navbar.php';
 
