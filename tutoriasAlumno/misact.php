@@ -15,7 +15,7 @@ $id_grupo_user = mysqli_fetch_assoc($obtener_id_grupo_exec);
 
 $id_grupo = $id_grupo_user['idgrupo'];
 
-$query_grupo = "SELECT nombreActividad, url, fecha_entrega, estatus from actividades as ac
+$query_grupo = "SELECT idactividad, nombreActividad, url, fecha_entrega, estatus from actividades as ac
   join listaGrupos as lg on lg.idgrupo=ac.idgrupo 
   join grupo as g on ac.idgrupo=g.idGrupo
   where ac.idgrupo = $id_grupo and idalumno = $alumno_actual and estatus = 'abierta'";
@@ -45,6 +45,7 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         <th class="text-center">Archivo</th>
         <th class="text-center">Fecha Entrega</th>
         <th class="text-center">Estatus</th>
+        <th class="text-center">Opciones</th>
       </tr>
     </thead>
     <tbody>
@@ -56,6 +57,54 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         <td class="text-center"><a href="<?php echo substr($query_json['url'], 22); ?>"><i class="glyphicon glyphicon-save"></i></a></td>
         <td class="text-center"><?php echo $query_json['fecha_entrega']; ?></td>
         <td class="text-center"><?php echo $query_json['estatus']; ?></td>
+        <td class="text-center">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad'] + 1; ?>" aria-expanded="false" aria-controls="collapseExample">
+            Acciones
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <div class="collapse" id="<?php echo $query_json['idactividad'] + 1; ?>">
+            <div class="well">
+              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
+                <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
+                <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
+                <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <input required class="btn btn-primary" name="fichero" type="file" size="150" maxlength="150">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-2 col-sm-12 col-md-offset-2">
+                      <button id="btn-guardar-act" name="btn-guardar-act" type="submit" class="btn btn-default">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
+                <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
+                <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
+                <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-2 col-sm-12 col-md-offset-2">
+                      <button id="btn-finalizar-act" name="btn-finalizar-act" type="submit" class="btn btn-default">Finalizar</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </td>
       </tr>
       <?php } ?>
     </tbody>
