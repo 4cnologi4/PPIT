@@ -2,6 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="recursos/css/index.css">
+<link rel="stylesheet" href="style.css">
 <?php
 include 'header.php';
 include 'navbar.php';
@@ -18,6 +19,20 @@ if (isset($_SESSION['nom_usuario']) && isset($_SESSION['nom_rol'])) {
   } elseif ($_SESSION['nom_rol'] == 'Administrativo') {
     include 'tutoriasAdministrativo/tutoriasAdministrativo.php';
   }
+} else {
+  echo "
+          <div class='container'>
+              <div class='row text-center'>
+                  <div class='col-sm-6 col-sm-offset-3'>
+                  <br><br> <h2 class='text-warning'>Warning!</h2>
+                  <h3 class='text-warning'>No existe el usuario ...</h3>
+                  <p class='text-danger'>Debes iniciar sesión! para acceder a tutorías.</p>
+                  <a href='index.php'>Volver</a>
+                  <br><br>
+                  </div>
+              </div>
+          </div>
+      ";
 }
 
 ?>

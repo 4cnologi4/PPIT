@@ -43,13 +43,13 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
     <thead>
       <tr>
         <th class="text-center">Nombre Actividad</th>
-        <th class="text-center">Archivo</th>
+        <!--th class="text-center">Archivo</th-->
         <th class="text-center">Fecha Entrega</th>
         <th class="text-center">Estatus</th>
         <th class="text-center">Estado</th>
         <th class="text-center">Calificacion</th>
         <th class="text-center">Accion</th>
-        <th class="text-center">Opciones</th>
+        <th class="text-center">Comentarios</th>
       </tr>
     </thead>
     <tbody>
@@ -58,23 +58,24 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         ?>
       <tr>
         <td class="text-center"><?php echo $query_json['nombreActividad']; ?></td>
-        <td class="text-center"><a href="<?php echo substr($query_json['ruta'], 22); ?>"><i class="glyphicon glyphicon-save"></i></a></td>
+        <!--td class="text-center"><a href="<? #php echo substr($query_json['ruta'], 22); 
+                                              ?>"><i class="glyphicon glyphicon-save"></i></a></td-->
         <td class="text-center"><?php echo $query_json['fecha_entrega']; ?></td>
         <td class="text-center"><?php echo $query_json['estatus']; ?></td>
         <td class="text-center"><?php echo $query_json['estado']; ?></td>
         <td class="text-center"><?php echo $query_json['calificacion']; ?></td>
         <td class="text-center"><?php echo $query_json['accion']; ?></td>
         <td class="text-center">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad']; ?>" aria-expanded="false" aria-controls="collapseExample">
-            Acciones
+          <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad'] . 'b'; ?>" aria-expanded="false" aria-controls="collapseExample">
+            Ver
           </button>
         </td>
       </tr>
       <tr>
-        <td colspan="5">
-          <div class="collapse" id="<?php echo $query_json['idactividad']; ?>">
+        <td colspan="7">
+          <div class="collapse" id="<?php echo $query_json['idactividad'] . 'b'; ?>">
             <div class="well">
-              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
+              <form method="post" action="" class="form-horizontal" id="formulario" enctype="multipart/form-data">
                 <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
                 <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
                 <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
@@ -83,7 +84,11 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
                     <div class="form-group">
                       <div class="col-md-8">
                         <div class="form-group">
-                          <input required class="btn btn-primary" name="fichero" type="file" size="150" maxlength="150">
+                          <label for="">
+                            <?php echo $query_json['idactividad']; ?>
+                            <?php echo $alumno_actual ?>
+                            <?php echo $id_grupo ?>
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -92,19 +97,7 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
                 <div class="row">
                   <div class="form-group">
                     <div class="col-md-2 col-sm-12 col-md-offset-2">
-                      <button id="btn-guardar-act" name="btn-guardar-act" type="submit" class="btn btn-default">Guardar</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
-                <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
-                <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
-                <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
-                <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2 col-sm-12 col-md-offset-2">
-                      <button id="btn-finalizar-act" name="btn-finalizar-act" type="submit" class="btn btn-default">Finalizar</button>
+                      <button id="btn-guardar-act" name="btn-guardar-act" type="submit" class="btn btn-default">Comentar</button>
                     </div>
                   </div>
                 </div>

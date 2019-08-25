@@ -9,6 +9,7 @@
         <th class="text-center">carrera</th>
         <th class="text-center">alumno</th>
         <th class="text-center">clave</th>
+        <th class="text-center">semestre</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +28,7 @@
 
       #print_r($uid);
 
-      $sql_query = "SELECT idListaGrupo, num_control, nom_carrera, nom_usuario, clave  from listaGrupos as lg
+      $sql_query = "SELECT idListaGrupo, num_control, nom_carrera, nom_usuario, clave, semestre from listaGrupos as lg
         join grupo as g on g.idgrupo=lg.idgrupo
         join alumno as a on lg.idalumno=a.idalumno
         join usuarios as u on a.idusuario=u.idusuarios
@@ -43,6 +44,7 @@
         <td class="text-center"><?php echo $grupo['nom_carrera']; ?></td>
         <td class="text-center"><?php echo $grupo['nom_usuario']; ?></td>
         <td class="text-center"><?php echo $grupo['clave']; ?></td>
+        <td class="text-center"><?php echo $grupo['semestre']; ?></td>
       </tr>
       <?php } ?>
     </tbody>

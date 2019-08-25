@@ -58,14 +58,14 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         <td class="text-center"><?php echo $query_json['fecha_entrega']; ?></td>
         <td class="text-center"><?php echo $query_json['estatus']; ?></td>
         <td class="text-center">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad'] + 1; ?>" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad']; ?>" aria-expanded="false" aria-controls="collapseExample">
             Acciones
           </button>
         </td>
       </tr>
       <tr>
         <td colspan="5">
-          <div class="collapse" id="<?php echo $query_json['idactividad'] + 1; ?>">
+          <div class="collapse" id="<?php echo $query_json['idactividad']; ?>">
             <div class="well">
               <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
                 <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
