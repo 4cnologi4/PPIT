@@ -1,5 +1,4 @@
 <?php
-
 include 'config/db/conexion.php';
 $usuario = $_SESSION['nom_usuario'];
 $sql_resp = "SELECT idalumno
@@ -58,45 +57,35 @@ $query_clave_json = mysqli_fetch_assoc($query_clave_exec);
         <td class="text-center"><?php echo $query_json['fecha_entrega']; ?></td>
         <td class="text-center"><?php echo $query_json['estatus']; ?></td>
         <td class="text-center">
-          <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad']; ?>" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#<?php echo $query_json['idactividad'] . $alumno_actual . $id_grupo; ?>" aria-expanded="false" aria-controls="collapseExample">
             Acciones
           </button>
         </td>
       </tr>
       <tr>
         <td colspan="5">
-          <div class="collapse" id="<?php echo $query_json['idactividad']; ?>">
+          <div class="collapse" id="<?php echo $query_json['idactividad'] . $alumno_actual . $id_grupo; ?>">
             <div class="well">
-              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
+              <form method="post" action="tutoriasAlumno/subirA.php" class="form-inline" id="formulario-guardar" enctype="multipart/form-data">
                 <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
                 <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
                 <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
                 <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-4 col-md-offset-4">
                     <div class="form-group">
-                      <div class="col-md-8">
-                        <div class="form-group">
-                          <input required class="btn btn-primary" name="fichero" type="file" size="150" maxlength="150">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2 col-sm-12 col-md-offset-2">
+                      <input required class="btn btn-primary form-control" name="fichero" type="file" size="150" maxlength="150">
                       <button id="btn-guardar-act" name="btn-guardar-act" type="submit" class="btn btn-default">Guardar</button>
                     </div>
                   </div>
                 </div>
               </form>
-              <form method="post" action="tutoriasAlumno/subirA.php" class="form-horizontal" id="formulario" enctype="multipart/form-data">
+              <form method="post" action="tutoriasAlumno/subirA.php" class="form-inline" id="formulario" enctype="multipart/form-data">
                 <input class="text-center" name="idactividad" style="visibility:hidden" value="<?php echo $query_json['idactividad']; ?>" />
                 <input class="text-center" name="idalumno" style="visibility:hidden" value="<?php echo $alumno_actual ?>" />
                 <input class="text-center" name="idgrupo" style="visibility:hidden" value="<?php echo $id_grupo ?>" />
                 <div class="row">
-                  <div class="form-group">
-                    <div class="col-md-2 col-sm-12 col-md-offset-2">
+                  <div class="col-md-6 col-sm-12 col-md-offset-5">
+                    <div class="form-group">
                       <button id="btn-finalizar-act" name="btn-finalizar-act" type="submit" class="btn btn-default">Finalizar</button>
                     </div>
                   </div>

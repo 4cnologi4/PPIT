@@ -18,6 +18,7 @@
     </div>
     <div class="col-sm-12 col-md-4 text-center">
       <a href="javascript:void(0)" onclick="cargarMisActividadesEvaluadas()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a>
+      <!--a href="tutoriasAlumno/misacteval.php" onclick="cargarMisActividadesEvaluadas()"><img src="recursos/img/tutorias/unirse.png" class="img-circle" alt="Cinque Terre"></a-->
       <p>Mis actividades evaluadas</p>
     </div>
     <!--div class="col-sm-6 col-md-3 text-center">
